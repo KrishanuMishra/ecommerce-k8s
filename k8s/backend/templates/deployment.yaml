@@ -46,7 +46,7 @@ spec:
               protocol: TCP
           envFrom:
             - configMapRef:
-                name: {{ include ".Values.service.fullnameOverride" . }}-config
+                name: {{ include "backend.fullname" . }}-config
           {{- with .Values.livenessProbe }}
           livenessProbe:
             {{- toYaml . | nindent 12 }}
