@@ -29,11 +29,11 @@ service:
   targetPort: 80
 
 ingress:
-  enabled: false
-  className: ""
+  enabled: true
+  className: "nginx"
   annotations: {}
   hosts:
-    - host: frontend.local
+    - host: ""
       paths:
         - path: /
           pathType: Prefix
