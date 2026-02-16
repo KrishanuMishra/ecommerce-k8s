@@ -36,8 +36,8 @@ jobs:
           context: ./backend
           push: true
           tags: |
-            krishanumishra/ecommerce-backend:${{ github.sha }}
-            krishanumishra/ecommerce-backend:latest
+            krishanu77/ecommerce-backend:${{ github.sha }}
+            krishanu77/ecommerce-backend:latest
 
   frontend-build:
     name: Build & Push Frontend
@@ -66,5 +66,5 @@ jobs:
           context: ./frontend
           push: true
           tags: |
-            krishanumishra/ecommerce-frontend:${{ github.sha }}
-            krishanumishra/ecommerce-frontend:latest
+            krishanu77/ecommerce-frontend:${{ github.sha }}
+            krishanu77/ecommerce-frontend:latest
