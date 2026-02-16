@@ -10,8 +10,8 @@ on:
 jobs:
   # Triggering the backend CI workflow
   backend-ci:
-    uses: ../backend/.github/workflows/backend-ci.yaml
+    uses: ./backend/.github/workflows/backend-ci.yaml
 
   # Triggering the frontend CI workflow
   frontend-ci:
-    uses: ../frontend/.github/workflows/frontend-ci.yaml
+    uses: ./frontend/.github/workflows/frontend-ci.yaml
