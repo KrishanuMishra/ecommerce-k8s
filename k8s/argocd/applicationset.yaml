@@ -20,6 +20,7 @@ spec:
       annotations:
         argocd-image-updater.argoproj.io/image-list: krishanu77/ecommerce-{{name}}
         argocd-image-updater.argoproj.io/semver: "true"
+        argocd-image-updater.argoproj.io/write-back-method: git:secret:argocd/git-credentials
     spec:
       project: default
 
