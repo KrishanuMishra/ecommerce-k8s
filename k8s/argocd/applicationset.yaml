@@ -1,0 +1,40 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: ecommerce-apps
+  namespace: argocd
+spec:
+  generators:
+    - list:
+        elements:
+          - name: backend
+            path: k8s/backend
+            namespace: backend
+          - name: frontend
+            path: k8s/frontend
+            namespace: frontend
+
+  template:
+    metadata:
+      name: "{{name}}"
+    spec:
+      project: default
+
+      source:
+        repoURL: git@github.com:KrishanuMishra/ecommerce-k8s.git
+        targetRevision: main
+        path: "{{path}}"
+        helm:
+          valueFiles:
+            - values.yaml
+
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: "{{namespace}}"
+
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+          - CreateNamespace=true
