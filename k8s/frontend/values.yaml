@@ -2,8 +2,8 @@ replicaCount: 1
 
 image:
   repository: krishanu77/ecommerce-frontend
-  pullPolicy: Always
-  tag: "latest"
+  pullPolicy: IfNotPresent
+  tag: "0.1.0"
 
 imagePullSecrets: []
 nameOverride: "frontend"

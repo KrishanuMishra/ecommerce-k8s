@@ -3,7 +3,7 @@ replicaCount: 1
 image:
   repository: krishanu77/ecommerce-backend
   pullPolicy: IfNotPresent
-  tag: "latest"
+  tag: "0.1.0"
 
 imagePullSecrets: []
 nameOverride: "backend"
