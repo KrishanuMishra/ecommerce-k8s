@@ -9,10 +9,10 @@ spec:
         elements:
           - name: backend
             path: k8s/backend
-            namespace: backend
+            namespace: dev
           - name: frontend
             path: k8s/frontend
-            namespace: frontend
+            namespace: dev
 
   template:
     metadata:
