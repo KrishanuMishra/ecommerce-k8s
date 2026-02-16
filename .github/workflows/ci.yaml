@@ -7,6 +7,8 @@ on:
   pull_request:
     branches:
       - main
+  tags:
+    - "v*.*.*"
 
 jobs:
   backend-build:
@@ -32,8 +34,8 @@ jobs:
       - name: Determine semver
         id: semver
         run: |
-          # Use Git tags to determine version, fallback to 0.1.0
-          VERSION=$(git describe --tags --abbrev=0 2>/dev/null || echo "0.1.0")
+          # GITHUB_REF is like "refs/tags/v0.2.0"
+          VERSION=${GITHUB_REF#refs/tags/}
           echo "VERSION=$VERSION" >> $GITHUB_ENV
 
       - name: Build and push Backend image
@@ -67,8 +69,8 @@ jobs:
       - name: Determine semver
         id: semver
         run: |
-          # Use Git tags to determine version, fallback to 0.1.0
-          VERSION=$(git describe --tags --abbrev=0 2>/dev/null || echo "0.1.0")
+          # GITHUB_REF is like "refs/tags/v0.2.0"
+          VERSION=${GITHUB_REF#refs/tags/}
           echo "VERSION=$VERSION" >> $GITHUB_ENV
 
       - name: Build and push Frontend image
