@@ -1,0 +1,17 @@
+# Triggering the frontend CI and backend CI workflow on pushes and pull requests to the main branch
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  # Triggering the backend CI workflow
+  backend-ci:
+    uses: ./.github/workflows/backend-ci.yaml
+
+  # Triggering the frontend CI workflow
+  frontend-ci:
+    uses: ./.github/workflows/frontend-ci.yaml
