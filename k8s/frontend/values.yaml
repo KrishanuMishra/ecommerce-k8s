@@ -2,7 +2,7 @@ replicaCount: 1
 
 image:
   repository: krishanu77/ecommerce-frontend
-  pullPolicy: IfNotPresent
+  pullPolicy: Always
   tag: "latest"
 
 imagePullSecrets: []
